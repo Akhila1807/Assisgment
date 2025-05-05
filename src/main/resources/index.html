@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Inventory Items</title>
+</head>
+<body>
+<h2>Inventory Items</h2>
+
+<form action="/add" method="post" th:object="${item}">
+    Name: <input type="text"/><br/>
+    Quantity: <input type="number" /><br/>
+    Location: <input type="text"  /><br/>
+    <button type="submit">Add Item</button>
+</form>
+
+<hr/>
+<h3>Item List</h3>
+<table border="1">
+    <tr><th>ID</th><th>Name</th><th>Quantity</th><th>Location</th></tr>
+    <tr th:each="i : ${items}">
+        <!--/*@thymesVar id="id" type=""*/-->
+        <td th:text="${i.id}"></td>
+        <td th:text="${i.name}"></td>
+        <td th:text="${i.quantity}"></td>
+        <td th:text="${i.location}"></td>
+    </tr>
+</table>
+</body>
+</html>
